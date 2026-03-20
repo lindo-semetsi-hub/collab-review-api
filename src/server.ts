@@ -21,9 +21,11 @@ app.use(express.json());
 
 // auth route -----
 app.use("/api/auth", authRoutes);
+//-------------------------------------
 
 app.use("/api/projects", projectsRoutes);
 app.use("/api/submissions", submissionsRoutes);
+app.use("/api/comments", commentsRoutes);
 
 // ---- endpoint------
 app.get("/", (req, res) => {
