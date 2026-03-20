@@ -2,6 +2,9 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 
+import projectsRoutes from "./routes/projects";
+import submissionsRoutes from "./routes/submissions";
+
 import authRoutes from "./routes/auth";
 
 dotenv.config();
@@ -14,8 +17,13 @@ app.use(express.json());
 
 
 
-// route -----
+
+
+// auth route -----
 app.use("/api/auth", authRoutes);
+
+app.use("/api/projects", projectsRoutes);
+app.use("/api/submissions", submissionsRoutes);
 
 // ---- endpoint------
 app.get("/", (req, res) => {
