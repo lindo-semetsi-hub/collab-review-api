@@ -4,6 +4,8 @@ import dotenv from "dotenv";
 
 import projectsRoutes from "./routes/projects";
 import submissionsRoutes from "./routes/submissions";
+import commentsRoutes from "./routes/comments";
+import reviewsRoutes from "./routes/reviews";
 
 import authRoutes from "./routes/auth";
 
