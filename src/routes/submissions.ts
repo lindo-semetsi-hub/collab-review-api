@@ -1,5 +1,5 @@
 import { Router } from "express";
-import pool from "../db";
+import { pool } from "../db";
 import authMiddleware from "../middleware/auth";
 
 const router = Router();
@@ -47,7 +47,7 @@ router.patch("/:submissionId/status", authMiddleware, async (req, res) => {
     const result = await pool.query(
 
       "UPDATE submissions SET status=$1 WHERE id=$2 RETURNING *",
-      
+
       [status, submissionId]
     );
     res.json(result.rows[0]);
