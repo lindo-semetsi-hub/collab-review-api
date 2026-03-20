@@ -1,18 +1,37 @@
-import request from 'supertest';
-import app from './server'; //export
+import request from "supertest";
+import app from "./server";
 
 (async () => {
-
-  // regsiter test
-  const registerRes = await request(app)
-    .post('/api/auth/register')
-    .send({ name: 'Lindo', email: 'lindo@test.com', password: '586211' });
-  console.log('Register response:', registerRes.body);
+  try {
+    console.log("=== Testing /register ===");
+    const registerRes = await request(app)
 
 
-  //login test
-  const loginRes = await request(app)
-    .post('/api/auth/login')
-    .send({ email: 'Lindo@test.com', password: '586211' });
-  console.log('Login response:', loginRes.body);
+      .post("/api/auth/register")
+      .send({
+        name: "Lindo",
+        email: "lindo@test.com",
+
+        password: "586211"
+      });
+    console.log("register response:", registerRes.body);
+
+    console.log("=== Testing /login ===");
+
+
+    const loginRes = await request(app)
+      .post("/api/auth/login")
+      .send({
+
+        email: "lindo@test.com",
+        password: "586211"
+      });
+    console.log("login response:", loginRes.body);
+
+
+
+
+  } catch (err) {
+    console.error("test error:", err);
+  }
 })();
