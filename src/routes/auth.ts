@@ -1,6 +1,6 @@
 import express from "express";
 import { pool } from "../db";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
 const router = express.Router();
@@ -30,7 +30,7 @@ router.post("/login", async (req, res) => {
 
   if (!user) return res.status(400).send("User not found");
 
-  
+
   const valid = await bcrypt.compare(password, user.password);
 
 
