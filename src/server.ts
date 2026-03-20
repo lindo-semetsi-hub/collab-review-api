@@ -26,6 +26,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/projects", projectsRoutes);
 app.use("/api/submissions", submissionsRoutes);
 app.use("/api/comments", commentsRoutes);
+app.use("/api/reviews", reviewsRoutes);
 
 // ---- endpoint------
 app.get("/", (req, res) => {
